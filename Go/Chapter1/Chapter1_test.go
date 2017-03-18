@@ -44,3 +44,20 @@ func TestCheckPermutation(t *testing.T) {
 		}
 	}
 }
+
+func TestURLify(t *testing.T) {
+	cases := []struct {
+		str1 string
+		length int
+		expect string
+	}{
+		{"Mr John Smith    ", 13 ,"Mr%20John%20Smith"},
+	}
+
+	for _, tc := range cases {
+		result := URLify(tc.str1, tc.length)
+		if result != tc.expect {
+			t.Errorf("CheckPermutation: input (%q, %d) expect %v, but got %v\n", tc.str1,  tc.length ,tc.expect, result)
+		}
+	}
+}
