@@ -7,7 +7,6 @@ package Chapter_1
 // EXAMPLE
 // Input: "Mr John Smith ", 13
 // Output: "Mr%20John%20Smith"
-
 func URLify(url string, tl int) string {
 	// start at the true length and go backwards
 	// because Go doesn't let you modify strings in place
