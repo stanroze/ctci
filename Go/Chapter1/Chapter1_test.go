@@ -61,3 +61,23 @@ func TestURLify(t *testing.T) {
 		}
 	}
 }
+
+func TestIsPalindrome(t *testing.T) {
+	cases := []struct {
+		str1 string
+		expect bool
+	}{
+		{"Tact Coa", true},
+		{"abababa", true},
+		{"babba", true},
+		{"babbab", true},
+		{"babbbabc", false},
+	}
+
+	for _, tc := range cases {
+		result := IsPalindrome(tc.str1)
+		if result != tc.expect {
+			t.Errorf("IsPalindrome: input %q expect %v, but got %v\n", tc.str1,tc.expect, result)
+		}
+	}
+}
