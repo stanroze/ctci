@@ -81,3 +81,25 @@ func TestIsPalindrome(t *testing.T) {
 		}
 	}
 }
+
+func TestOneAway(t *testing.T) {
+	cases := []struct {
+		str1 string
+		str2 string
+		expect bool
+	}{
+		{"pale","ple", true},
+		{"pales","pale", true},
+		{"pale","bale", true},
+		{"pale","bake", false},
+		{"pale","pale", true},
+		{"pale","plae", false},
+	}
+
+	for _, tc := range cases {
+		result := OneAway(tc.str1, tc.str2)
+		if result != tc.expect {
+			t.Errorf("OneAway: input %q,%q expect %v, but got %v\n", tc.str1,tc.str2,tc.expect, result)
+		}
+	}
+}
