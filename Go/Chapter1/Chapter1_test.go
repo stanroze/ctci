@@ -103,3 +103,22 @@ func TestOneAway(t *testing.T) {
 		}
 	}
 }
+
+func TestCompress(t *testing.T) {
+
+	cases := []struct {
+		str1 string
+		expect string
+	}{
+		{"aabcccccaaa","a2b1c5a3"},
+		{"abcd","abcd"},
+		{"aaabbccdd","a3b2c2d2"},
+	}
+
+	for _, tc := range cases {
+		result := Compress(tc.str1)
+		if result != tc.expect {
+			t.Errorf("Compress: input %q expect %v, but got %v\n", tc.str1,tc.expect, result)
+		}
+	}
+}
