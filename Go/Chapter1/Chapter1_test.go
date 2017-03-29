@@ -1,6 +1,9 @@
 package Chapter_1
 
-import "testing"
+import (
+	"testing"
+	"reflect"
+)
 
 func TestIsUniqueASCII(t *testing.T) {
 	cases := []struct {
@@ -121,4 +124,28 @@ func TestCompress(t *testing.T) {
 			t.Errorf("Compress: input %q expect %v, but got %v\n", tc.str1,tc.expect, result)
 		}
 	}
+}
+
+func TestRotateMatrix(t *testing.T) {
+	actual := [][]rune{
+		{'1', '2', '3', '4', '5'},
+		{'6', '7', '8', '9', 'a'},
+		{'b', 'c', 'd', 'e', 'f'},
+		{'g', 'h', 'i', 'j', 'k'},
+		{'k', 'l', 'm', 'n', 'o'},
+	}
+
+	expected := [][]rune{
+		{'5','a','f','k','o'},
+		{'4','9','e','j','n'},
+		{'3','8','d','i','m'},
+		{'2','7','c','h','l'},
+		{'1','6','b','g','k'},
+	}
+
+	result := RotateMatrix(actual)
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("RotateMatrix: Expected matrix didn't match the result matrix.")
+	}
+
 }
