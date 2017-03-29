@@ -149,3 +149,91 @@ func TestRotateMatrix(t *testing.T) {
 	}
 
 }
+
+func TestZeroMatrix(t *testing.T) {
+	actual := [][]int {
+		{2,2,2,2},
+		{2,2,0,2},
+		{2,2,2,2},
+	}
+
+	expected := [][]int{
+		{2, 2, 0, 2},
+		{0, 0, 0, 0},
+		{2,2,0,2},
+	}
+
+	result := ZeroMatrix(actual)
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("ZeroMatrix: failed, %v", result)
+	}
+
+	actual = [][]int {
+		{2,0,2,2},
+		{2,2,2,2},
+		{2,2,2,2},
+	}
+
+	expected = [][]int{
+		{0, 0, 0, 0},
+		{2, 0, 2, 2},
+		{2, 0, 2, 2},
+	}
+
+	result = ZeroMatrix(actual)
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("ZeroMatrix: failed, %v", result)
+	}
+
+	actual = [][]int {
+		{2,0,2,2},
+		{2,2,2,2},
+		{2,2,0,2},
+	}
+
+	expected = [][]int{
+		{0,0,0,0},
+		{2,0,0,2},
+		{0,0,0,0},
+	}
+
+	result = ZeroMatrix(actual)
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("ZeroMatrix: failed, %v", result)
+	}
+
+
+	actual = [][]int {
+		{2,0,2,2},
+		{0,2,2,2},
+		{2,2,0,2},
+	}
+
+	expected = [][]int{
+		{0,0,0,0},
+		{0,0,0,0},
+		{0,0,0,0},
+	}
+
+	result = ZeroMatrix(actual)
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("ZeroMatrix: failed, %v", result)
+	}
+
+	actual = [][]int {
+		{2,2,2,2},
+		{2,2,2,2},
+		{2,2,2,2},
+	}
+
+	expected = [][]int{
+		{2, 2, 2, 2},
+		{2, 2, 2, 2},
+		{2, 2, 2, 2},
+	}
+
+	result = ZeroMatrix(actual)
+	if !reflect.DeepEqual(result, expected) {
+		t.Errorf("ZeroMatrix: failed, %v", result)
+	}
+}
