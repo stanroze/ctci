@@ -1,5 +1,6 @@
 package Chapter_1
 
+// Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 func ZeroMatrix(matrix [][]int) [][]int {
 	// make sure the first does not have a zero
 	var firstRowHasZero,firstColHasZero bool
