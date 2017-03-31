@@ -237,3 +237,12 @@ func TestZeroMatrix(t *testing.T) {
 		t.Errorf("ZeroMatrix: failed, %v", result)
 	}
 }
+
+func TestIsRotation(t *testing.T) {
+	s1 := "waterbottle"
+	s2 := "bottlewater"
+
+	if !IsRotation(s1, s2) {
+		t.Errorf("IsRotation failed.")
+	}
+}
