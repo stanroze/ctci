@@ -49,3 +49,25 @@ func TestKthToLast(t *testing.T) {
 	}
 
 }
+
+func TestRemove(t *testing.T) {
+	list := newList("h","e","l","l","x","o")
+	var node *Node
+	for node = list.head; node.value != "x"; node = node.next {
+	}
+	list.Remove(node)
+	actual := list.toArray()
+	expected := []string{"h","e","l","l","o"}
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("TestRemove - Expected: %v Actual: %v \n", expected, actual)
+	}
+	list = newList("h","e","x","l","l","o")
+	for node = list.head; node.value != "x"; node = node.next {
+	}
+	list.Remove(node)
+	actual = list.toArray()
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("TestRemove - Expected: %v Actual: %v \n", expected, actual)
+	}
+
+}
