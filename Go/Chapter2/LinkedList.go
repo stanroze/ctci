@@ -10,11 +10,20 @@ type LinkedList struct {
 	head *Node
 }
 
-func newList(value string) *LinkedList {
-	return &LinkedList{&Node{nil, value}}
+func newList(value ...string) *LinkedList {
+	list := &LinkedList{}
+	for _, v := range value {
+		list.append(v)
+	}
+	return list
 }
 
 func (list *LinkedList) append(value string)  {
+	if list.head == nil {
+		list.head = &Node{nil, value}
+		return
+	}
+
 	var node *Node
 	for node = list.head; node.next != nil; node = node.next {}
 	node.next = &Node{nil, value}
